@@ -17,11 +17,13 @@
             </e>
           </e>
         </e>
-        <e p="PowerUpBehavior.cs" t="Include" />
+        <e p="RedMushroomBehavior.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BrickBehaviour.cs" t="Include" />
+          <e p="BrickMover.cs" t="Include" />
           <e p="MoveBall.cs" t="Include" />
           <e p="MovePaddle.cs" t="Include" />
+          <e p="PowerUpBehavior.cs" t="Include" />
         </e>
       </e>
       <e p="Block-Breaker-master.sln" t="IncludeFlat" />

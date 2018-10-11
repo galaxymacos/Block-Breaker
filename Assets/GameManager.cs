@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int lives = 3;
 
-    [SerializeField] private MoveBall ball; // Script is a class in Unity
+    [FormerlySerializedAs("ball")] [SerializeField] private MoveBall ballScript; // Script is a class in Unity
     [SerializeField] private GameObject btnRetry;
     [SerializeField] private GameObject btnExit;
 
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     private int blocks = 0;
     [SerializeField] private GameObject[] levels;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject ball;
     private int currLvl = 0;
     private GameObject currBoard;
     [SerializeField] private float countDownTimer = 10;
@@ -49,11 +51,11 @@ public class GameManager : MonoBehaviour
         lives--;
         if (lives > 0)
         {
-            ball.Init();
+            ballScript.Init();
         }
         else
         {
-            ball.Init();
+            ballScript.Init();
             score.text = "Game over\nScore:" + point.ToString("D8");
 //            ball.gameObject.SetActive(false);
             if (point > bestScore)
@@ -91,7 +93,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Replay the last level");
             }
 
-            ball.Init();
+            ballScript.Init();
             LoadLvl();
         }
     }
@@ -114,6 +116,17 @@ public class GameManager : MonoBehaviour
             paddleSprite.size += new Vector2(paddleSprite.size.x, 0);
             isBig = true;
         }
+    }
+
+    public int fireballTime = 0;
+    public int maximumBallTime = 5;
+    
+    public void GetFireballEffect()
+    {
+        var sr = ball.GetComponent<SpriteRenderer>();
+        sr.color = Color.red;
+        fireballTime = maximumBallTime;
+
     }
 
     public void ResetSize()
@@ -154,4 +167,6 @@ public class GameManager : MonoBehaviour
 //        btnExit.SetActive(false);
 //        btnRetry.SetActive(false);
     }
+    
+    
 }

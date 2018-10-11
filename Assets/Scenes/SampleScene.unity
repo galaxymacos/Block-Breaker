@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65248255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1759629578401200, guid: c3dcbd7b7aef95541949330e7b5c3912,
+    type: 2}
+  m_PrefabInternal: {fileID: 2087370011}
 --- !u!4 &232695237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4175299988468930, guid: c3dcbd7b7aef95541949330e7b5c3912,
@@ -420,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
-  ball: {fileID: 232695238}
+  ballScript: {fileID: 232695238}
   btnRetry: {fileID: 0}
   btnExit: {fileID: 0}
   score: {fileID: 1473055910}
@@ -428,8 +433,11 @@ MonoBehaviour:
   - {fileID: 1784511958528528, guid: e2037db6a3377f54691d68d8de857408, type: 2}
   - {fileID: 1529044824522852, guid: fdedd6f032622194cb837b26f6769569, type: 2}
   player: {fileID: 1805396558}
+  ball: {fileID: 65248255}
   countDownTimer: 10
   sceneToLoad: 
+  fireballTime: 0
+  maximumBallTime: 5
 --- !u!4 &812659384
 Transform:
   m_ObjectHideFlags: 0
